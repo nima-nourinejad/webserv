@@ -57,73 +57,98 @@
 
 <div class="container">
     <h1>Webserv Project - Module Diagram with Details</h1>
-<p>This project is divided into eight submodules, each addressing a key aspect of web server functionality. Below are the details, including the input, output, and main responsibilities for each module:</p>
+<p>This project consists of eight distinct submodules, each focusing on a specific area of functionality required for building the web server. Each module has clearly defined inputs, outputs, providers, and consumers, ensuring seamless communication between the different components of the web server.</p>
+
 <ol>
     <li>
         <strong>Configuration & Initialization</strong>  
         <ul>
+            <li><strong>Provider of Input:</strong> Server administrator (provides configuration file)</li>
             <li><strong>Input:</strong> Server configuration file (e.g., .conf file)</li>
             <li><strong>Output:</strong> Initialized server settings (ports, routes, error pages)</li>
+            <li><strong>Consumer of Output:</strong> Networking & Socket Management module</li>
             <li><strong>Responsibility:</strong> Reads and parses the configuration file to initialize server parameters such as ports, virtual hosts, routes, and error handling settings.</li>
         </ul>
     </li>
+
     <li>
         <strong>Networking & Socket Management</strong>  
         <ul>
+            <li><strong>Provider of Input:</strong> Configuration & Initialization module</li>
             <li><strong>Input:</strong> Server configuration (port, IP address)</li>
             <li><strong>Output:</strong> Active socket connections</li>
+            <li><strong>Consumer of Output:</strong> Concurrency & Event-Driven I/O module</li>
             <li><strong>Responsibility:</strong> Manages the creation of network sockets and listens for incoming client connections, establishing communication channels.</li>
         </ul>
     </li>
+
     <li>
         <strong>Concurrency & Event-Driven I/O</strong>  
         <ul>
+            <li><strong>Provider of Input:</strong> Networking & Socket Management module</li>
             <li><strong>Input:</strong> Active socket connections</li>
             <li><strong>Output:</strong> Concurrent request handlers</li>
-            <li><strong>Responsibility:</strong> Handles multiple client connections simultaneously using non-blocking I/O and event-driven techniques to maximize efficiency.</li>
+            <li><strong>Consumer of Output:</strong> Request Handling module</li>
+            <li><strong>Responsibility:</strong> Manages multiple client connections simultaneously using non-blocking I/O and event-driven techniques to handle requests efficiently.</li>
         </ul>
     </li>
+
     <li>
         <strong>Request Handling</strong>  
         <ul>
+            <li><strong>Provider of Input:</strong> Concurrency & Event-Driven I/O module (active requests)</li>
             <li><strong>Input:</strong> Incoming HTTP requests</li>
             <li><strong>Output:</strong> Parsed request data (HTTP method, headers, body)</li>
-            <li><strong>Responsibility:</strong> Parses incoming HTTP requests to extract relevant information such as headers, method (GET, POST), and body content.</li>
+            <li><strong>Consumer of Output:</strong> Response Generation or CGI Handling modules</li>
+            <li><strong>Responsibility:</strong> Parses incoming HTTP requests, extracting relevant information such as headers, methods (GET, POST), and body content for further processing.</li>
         </ul>
     </li>
+
     <li>
         <strong>Response Generation</strong>  
         <ul>
+            <li><strong>Provider of Input:</strong> Request Handling module or CGI Handling module</li>
             <li><strong>Input:</strong> Parsed request data or CGI output</li>
             <li><strong>Output:</strong> HTTP response (headers, body)</li>
-            <li><strong>Responsibility:</strong> Generates and formats the HTTP response to send back to the client, including headers and body (e.g., HTML, JSON).</li>
+            <li><strong>Consumer of Output:</strong> Networking & Socket Management module (for sending the response to the client)</li>
+            <li><strong>Responsibility:</strong> Generates and formats the HTTP response, including headers and body (e.g., HTML, JSON), to send back to the client.</li>
         </ul>
     </li>
+
     <li>
         <strong>CGI Handling</strong>  
         <ul>
-            <li><strong>Input:</strong> Dynamic content requests</li>
+            <li><strong>Provider of Input:</strong> Request Handling module (for dynamic content requests)</li>
+            <li><strong>Input:</strong> Dynamic content requests (e.g., PHP, Python scripts)</li>
             <li><strong>Output:</strong> CGI script output (e.g., HTML, JSON)</li>
-            <li><strong>Responsibility:</strong> Runs external CGI scripts (such as PHP or Python) to generate dynamic content based on the client request.</li>
+            <li><strong>Consumer of Output:</strong> Response Generation module (for incorporating dynamic content in the response)</li>
+            <li><strong>Responsibility:</strong> Executes external CGI scripts (such as PHP or Python) to generate dynamic content for client requests.</li>
         </ul>
     </li>
+
     <li>
         <strong>File I/O & Static Content</strong>  
         <ul>
-            <li><strong>Input:</strong> Request for static files (e.g., HTML, CSS, images)</li>
-            <li><strong>Output:</strong> File contents</li>
+            <li><strong>Provider of Input:</strong> Request Handling module (for static file requests)</li>
+            <li><strong>Input:</strong> Requests for static files (e.g., HTML, CSS, images)</li>
+            <li><strong>Output:</strong> File contents (static HTML, CSS, etc.)</li>
+            <li><strong>Consumer of Output:</strong> Response Generation module (for incorporating file data in the response)</li>
             <li><strong>Responsibility:</strong> Reads static files from the server's file system and prepares them for inclusion in the HTTP response.</li>
         </ul>
     </li>
+
     <li>
         <strong>Error Handling & Logging</strong>  
         <ul>
-            <li><strong>Input:</strong> Errors and events from other modules</li>
-            <li><strong>Output:</strong> Error logs, error responses (e.g., 404, 500)</li>
-            <li><strong>Responsibility:</strong> Handles errors from various modules, generates appropriate HTTP error responses, and logs events for monitoring and debugging purposes.</li>
+            <li><strong>Provider of Input:</strong> Any module encountering an error (e.g., Request Handling, Response Generation)</li>
+            <li><strong>Input:</strong> Errors and events from various modules</li>
+            <li><strong>Output:</strong> Error logs, HTTP error responses (e.g., 404, 500)</li>
+            <li><strong>Consumer of Output:</strong> Response Generation module (to send error responses to the client) and system administrator (for logs)</li>
+            <li><strong>Responsibility:</strong> Logs errors, generates appropriate HTTP error responses, and handles any critical issues to ensure the server remains functional.</li>
         </ul>
     </li>
 </ol>
+
 
 </div>
 
