@@ -32,7 +32,90 @@
     </style>
 </head>
 <body>
+<!-- Block Diagram for Webserv Project -->
+    <div class="container">
+        <h2>Webserv Project - Module Diagram with Details</h2>
 
+        <!-- Configuration & Initialization Module -->
+        <div class="module">
+            <h3>Configuration & Initialization</h3>
+            <p><strong>Receives:</strong> Configuration file</p>
+            <p><strong>Creates:</strong> Initializes server settings (port, host, routes, error pages) for all modules</p>
+            <p><strong>Passes To:</strong> Networking & Socket Management</p>
+        </div>
+
+        <div class="connector"></div>
+
+        <!-- Networking & Socket Management Module -->
+        <div class="module">
+            <h3>Networking & Socket Management</h3>
+            <p><strong>Receives:</strong> Server configuration (port, host) from Configuration & Initialization</p>
+            <p><strong>Creates:</strong> Socket connections for incoming requests</p>
+            <p><strong>Passes To:</strong> Concurrency & Event-Driven I/O</p>
+        </div>
+
+        <div class="connector"></div>
+
+        <!-- Concurrency & Event-Driven I/O Module -->
+        <div class="module">
+            <h3>Concurrency & Event-Driven I/O</h3>
+            <p><strong>Receives:</strong> Active socket connections from Networking & Socket Management</p>
+            <p><strong>Creates:</strong> Manages multiple concurrent requests, triggers request handler when needed</p>
+            <p><strong>Passes To:</strong> Request Handling</p>
+        </div>
+
+        <div class="connector"></div>
+
+        <!-- Request Handling Module -->
+        <div class="module">
+            <h3>Request Handling</h3>
+            <p><strong>Receives:</strong> Incoming HTTP requests from Concurrency & Event-Driven I/O</p>
+            <p><strong>Creates:</strong> Parsed HTTP requests (headers, method, body)</p>
+            <p><strong>Passes To:</strong> Response Generation or CGI Handling (for dynamic content)</p>
+        </div>
+
+        <div class="connector"></div>
+
+        <!-- Response Generation Module -->
+        <div class="module">
+            <h3>Response Generation</h3>
+            <p><strong>Receives:</strong> Parsed requests from Request Handling, static content or CGI output</p>
+            <p><strong>Creates:</strong> HTTP responses (headers, body)</p>
+            <p><strong>Passes To:</strong> Networking & Socket Management (for sending response back to client)</p>
+        </div>
+
+        <div class="connector"></div>
+
+        <!-- CGI Handling Module -->
+        <div class="module">
+            <h3>CGI Handling</h3>
+            <p><strong>Receives:</strong> Dynamic content requests from Request Handling</p>
+            <p><strong>Creates:</strong> Runs CGI scripts (e.g., PHP, Python), sends output to Response Generation</p>
+            <p><strong>Passes To:</strong> Response Generation</p>
+        </div>
+
+        <div class="connector"></div>
+
+        <!-- File I/O and Static Content Module -->
+        <div class="module">
+            <h3>File I/O and Static Content</h3>
+            <p><strong>Receives:</strong> Requests for static files from Request Handling</p>
+            <p><strong>Creates:</strong> Reads static files (HTML, CSS, images) for serving in responses</p>
+            <p><strong>Passes To:</strong> Response Generation</p>
+        </div>
+
+        <div class="connector"></div>
+
+        <!-- Error Handling & Logging Module -->
+        <div class="module">
+            <h3>Error Handling & Logging</h3>
+            <p><strong>Receives:</strong> Errors or issues from any module</p>
+            <p><strong>Creates:</strong> Error logs, generates HTTP error responses (e.g., 404, 500)</p>
+            <p><strong>Passes To:</strong> Response Generation (for error pages)</p>
+        </div>
+    </div>
+
+    <!-- Original Study Plan Content -->
     <h1>Study Plan for Learning and Research Phase</h1>
 
     <!-- Part 1 -->
