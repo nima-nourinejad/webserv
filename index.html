@@ -57,82 +57,74 @@
 
 <div class="container">
     <h1>Webserv Project - Module Diagram with Details</h1>
+<p>This project is divided into eight submodules, each addressing a key aspect of web server functionality. Below are the details, including the input, output, and main responsibilities for each module:</p>
+<ol>
+    <li>
+        <strong>Configuration & Initialization</strong>  
+        <ul>
+            <li><strong>Input:</strong> Server configuration file (e.g., .conf file)</li>
+            <li><strong>Output:</strong> Initialized server settings (ports, routes, error pages)</li>
+            <li><strong>Responsibility:</strong> Reads and parses the configuration file to initialize server parameters such as ports, virtual hosts, routes, and error handling settings.</li>
+        </ul>
+    </li>
+    <li>
+        <strong>Networking & Socket Management</strong>  
+        <ul>
+            <li><strong>Input:</strong> Server configuration (port, IP address)</li>
+            <li><strong>Output:</strong> Active socket connections</li>
+            <li><strong>Responsibility:</strong> Manages the creation of network sockets and listens for incoming client connections, establishing communication channels.</li>
+        </ul>
+    </li>
+    <li>
+        <strong>Concurrency & Event-Driven I/O</strong>  
+        <ul>
+            <li><strong>Input:</strong> Active socket connections</li>
+            <li><strong>Output:</strong> Concurrent request handlers</li>
+            <li><strong>Responsibility:</strong> Handles multiple client connections simultaneously using non-blocking I/O and event-driven techniques to maximize efficiency.</li>
+        </ul>
+    </li>
+    <li>
+        <strong>Request Handling</strong>  
+        <ul>
+            <li><strong>Input:</strong> Incoming HTTP requests</li>
+            <li><strong>Output:</strong> Parsed request data (HTTP method, headers, body)</li>
+            <li><strong>Responsibility:</strong> Parses incoming HTTP requests to extract relevant information such as headers, method (GET, POST), and body content.</li>
+        </ul>
+    </li>
+    <li>
+        <strong>Response Generation</strong>  
+        <ul>
+            <li><strong>Input:</strong> Parsed request data or CGI output</li>
+            <li><strong>Output:</strong> HTTP response (headers, body)</li>
+            <li><strong>Responsibility:</strong> Generates and formats the HTTP response to send back to the client, including headers and body (e.g., HTML, JSON).</li>
+        </ul>
+    </li>
+    <li>
+        <strong>CGI Handling</strong>  
+        <ul>
+            <li><strong>Input:</strong> Dynamic content requests</li>
+            <li><strong>Output:</strong> CGI script output (e.g., HTML, JSON)</li>
+            <li><strong>Responsibility:</strong> Runs external CGI scripts (such as PHP or Python) to generate dynamic content based on the client request.</li>
+        </ul>
+    </li>
+    <li>
+        <strong>File I/O & Static Content</strong>  
+        <ul>
+            <li><strong>Input:</strong> Request for static files (e.g., HTML, CSS, images)</li>
+            <li><strong>Output:</strong> File contents</li>
+            <li><strong>Responsibility:</strong> Reads static files from the server's file system and prepares them for inclusion in the HTTP response.</li>
+        </ul>
+    </li>
+    <li>
+        <strong>Error Handling & Logging</strong>  
+        <ul>
+            <li><strong>Input:</strong> Errors and events from other modules</li>
+            <li><strong>Output:</strong> Error logs, error responses (e.g., 404, 500)</li>
+            <li><strong>Responsibility:</strong> Handles errors from various modules, generates appropriate HTTP error responses, and logs events for monitoring and debugging purposes.</li>
+        </ul>
+    </li>
+</ol>
 
-    <!-- Configuration & Initialization Module -->
-    <div class="module-container">
-        <div class="module">
-            <h3>Configuration & Initialization</h3>
-            <p><strong>Receives:</strong> Configuration file</p>
-            <p><strong>Creates:</strong> Initializes server settings (port, host, routes, error pages)</p>
-            <p><strong>Passes To:</strong> Networking & Socket Management</p>
-        </div>
-        <div class="connector"></div>
-
-        <!-- Networking & Socket Management Module -->
-        <div class="module">
-            <h3>Networking & Socket Management</h3>
-            <p><strong>Receives:</strong> Server configuration (port, host)</p>
-            <p><strong>Creates:</strong> Socket connections for incoming requests</p>
-            <p><strong>Passes To:</strong> Concurrency & Event-Driven I/O</p>
-        </div>
-    </div>
-
-    <div class="module-container">
-        <!-- Concurrency & Event-Driven I/O Module -->
-        <div class="module">
-            <h3>Concurrency & Event-Driven I/O</h3>
-            <p><strong>Receives:</strong> Active socket connections</p>
-            <p><strong>Creates:</strong> Manages multiple concurrent requests</p>
-            <p><strong>Passes To:</strong> Request Handling</p>
-        </div>
-        <div class="connector"></div>
-
-        <!-- Request Handling Module -->
-        <div class="module">
-            <h3>Request Handling</h3>
-            <p><strong>Receives:</strong> Incoming HTTP requests</p>
-            <p><strong>Creates:</strong> Parsed HTTP requests (headers, method, body)</p>
-            <p><strong>Passes To:</strong> Response Generation or CGI Handling</p>
-        </div>
-    </div>
-
-    <div class="module-container">
-        <!-- Response Generation Module -->
-        <div class="module">
-            <h3>Response Generation</h3>
-            <p><strong>Receives:</strong> Parsed requests or CGI output</p>
-            <p><strong>Creates:</strong> HTTP responses (headers, body)</p>
-            <p><strong>Passes To:</strong> Networking & Socket Management</p>
-        </div>
-        <div class="connector"></div>
-
-        <!-- CGI Handling Module -->
-        <div class="module">
-            <h3>CGI Handling</h3>
-            <p><strong>Receives:</strong> Dynamic content requests</p>
-            <p><strong>Creates:</strong> Runs CGI scripts (PHP, Python), sends output to Response Generation</p>
-            <p><strong>Passes To:</strong> Response Generation</p>
-        </div>
-    </div>
-
-    <div class="module-container">
-        <!-- File I/O and Static Content Module -->
-        <div class="module">
-            <h3>File I/O & Static Content</h3>
-            <p><strong>Receives:</strong> Requests for static files</p>
-            <p><strong>Creates:</strong> Reads static files (HTML, CSS, images)</p>
-            <p><strong>Passes To:</strong> Response Generation</p>
-        </div>
-        <div class="connector"></div>
-
-        <!-- Error Handling & Logging Module -->
-        <div class="module">
-            <h3>Error Handling & Logging</h3>
-            <p><strong>Receives:</strong> Errors from any module</p>
-            <p><strong>Creates:</strong> Error logs, HTTP error responses (404, 500)</p>
-            <p><strong>Passes To:</strong> Response Generation</p>
-        </div>
-    </div>
 </div>
 
     <!-- Original Study Plan Content -->
