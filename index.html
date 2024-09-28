@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Study Plan for Learning and Research Phase</title>
     <style>
         body {
@@ -39,15 +38,8 @@
     <!-- Part 1 -->
     <div class="day">
         <h2>Part 1: Introduction to Web Servers and HTTP</h2>
-        <h3>Videos and Articles:</h3>
-        <ul>
-            <li><a href="https://www.youtube.com/watch?v=UjCDWCeHCzY" target="_blank">"What is a Server? Servers vs Desktops Explained" by PowerCert Animated Videos</a></li>
-            <li><a href="https://www.geeksforgeeks.org/web-servers-work/" target="_blank">"How Do Web Servers Work?" by GeeksforGeeks</a></li>
-            <li><a href="https://www.youtube.com/watch?v=9J1nJOivdyw" target="_blank">"Web Server Concepts and Examples" by WebConcepts</a></li>
-            <li><a href="https://www.youtube.com/watch?v=JhpUch6lWMw" target="_blank">"What are Web Servers and How Do They Work (with examples httpd and nodejs)" by Hussein Nasser</a></li>
-        </ul>
         <h3>Learning Outcome:</h3>
-        <p>Understand the basics of web servers and the HTTP protocol.</p>
+        <p>Understand the fundamentals of web servers and the HTTP protocol, including how servers communicate with clients and serve content.</p>
 
         <!-- Guided Questions -->
         <h3>Guided Questions:</h3>
@@ -57,121 +49,215 @@
             <li><strong>What are the key components of HTTP?</strong> Request (method, URL, headers) and response (status code, headers, body).</li>
             <li><strong>What is the difference between static and dynamic content?</strong> Static content is pre-built (HTML, CSS), while dynamic content is generated at request time (using CGI).</li>
             <li><strong>How do common web servers (like Apache) work?</strong> They listen for client requests, process them, and respond using HTTP.</li>
+            <li><strong>What is the role of TCP/IP in web communication?</strong> TCP/IP protocols enable reliable data transmission over the internet, providing the foundation for HTTP communication.</li>
+            <li><strong>How does DNS relate to web servers?</strong> DNS translates domain names to IP addresses, allowing clients to locate web servers on the network.</li>
+        </ul>
+
+        <!-- Summary -->
+        <h3>Summary:</h3>
+        <p>
+            In this part, you will learn the basics of how web servers operate and how they use the HTTP protocol to communicate with clients. You'll explore the roles of requests and responses, understand the difference between static and dynamic content, and gain insights into how popular web servers like Apache function. This foundational knowledge will set the stage for deeper exploration into web server implementation and networking concepts.
+        </p>
+
+        <!-- Videos and Articles -->
+        <h3>Videos and Articles:</h3>
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=UjCDWCeHCzY" target="_blank">"What is a Server? Servers vs Desktops Explained" by PowerCert Animated Videos</a></li>
+            <li><a href="https://www.geeksforgeeks.org/web-servers-work/" target="_blank">"How Do Web Servers Work?" by GeeksforGeeks</a></li>
+            <li><a href="https://www.youtube.com/watch?v=9J1nJOivdyw" target="_blank">"Web Server Concepts and Examples" by WebConcepts</a></li>
+            <li><a href="https://www.youtube.com/watch?v=JhpUch6lWMw" target="_blank">"What are Web Servers and How Do They Work (with examples httpd and nodejs)" by Hussein Nasser</a></li>
         </ul>
     </div>
 
     <!-- Part 2 -->
     <div class="day">
         <h2>Part 2: Understanding the HTTP Request/Response Cycle</h2>
-        <h3>Videos and Articles:</h3>
-        <ul>
-            <li><a href="https://www.youtube.com/watch?v=eesqK59rhGA" target="_blank">"The Http and the Web | Http Explained | Request-Response Cycle" by The TechCave</a></li>
-            <li><a href="https://dev.to/devlawrence/understanding-http-basics-for-beginners-3f28" target="_blank">"Understanding HTTP: Basics for Beginners" by DEV Community</a></li>
-            <li><a href="https://www.youtube.com/watch?v=ALq0xKp3P9E" target="_blank">"How HTTP Protocol Works?" by Animated Study</a></li>
-            <li><a href="https://davisgitonga.dev/blog/request-response-cycle" target="_blank">"How the Web Works, HTTP Request/Response Cycle" by Davis Gitonga</a></li>
-            <li><a href="https://www.youtube.com/watch?v=pHFWGN-upGM" target="_blank">"Parts of an HTTP Request" by Udacity</a></li>
-            <li><a href="https://www.unrepo.com/http/http-request-response-cycle-tutorial" target="_blank">"HTTP Request-Response Cycle - Tutorial" by unRepo</a></li>
-            <li><a href="https://www.youtube.com/watch?v=qmRuZdj_-a0" target="_blank">"HTTP Request & Response | ASP.NET Core MVC Course" by procademy</a></li>
-        </ul>
         <h3>Learning Outcome:</h3>
-        <p>Grasp how requests and responses work in HTTP, including GET, POST, and DELETE methods.</p>
+        <p>Grasp how HTTP requests and responses work, including various methods, status codes, headers, and data encoding techniques.</p>
 
         <!-- Guided Questions -->
         <h3>Guided Questions:</h3>
         <ul>
             <li><strong>What is the HTTP request-response cycle?</strong> The client sends a request; the server processes it and sends a response.</li>
-            <li><strong>What are the HTTP methods, and when are they used?</strong> 
+            <li><strong>What are the HTTP methods, and when are they used?</strong>
                 <ul>
                     <li><strong>GET:</strong> Retrieve data.</li>
-                    <li><strong>POST:</strong> Submit data.</li>
-                    <li><strong>DELETE:</strong> Remove a resource.</li>
+                    <li><strong>POST:</strong> Submit data to the server.</li>
+                    <li><strong>DELETE:</strong> Remove a resource on the server.</li>
+                    <li><strong>PUT:</strong> Update or create a resource.</li>
+                    <li><strong>HEAD:</strong> Retrieve headers without the body.</li>
                 </ul>
             </li>
-            <li><strong>What are HTTP status codes?</strong> Codes that indicate the result of the request:
+            <li><strong>What are HTTP status codes?</strong> Codes indicating the result of the request:
                 <ul>
                     <li>200: Success</li>
-                    <li>404: Not found</li>
-                    <li>500: Server error</li>
+                    <li>301: Moved Permanently</li>
+                    <li>400: Bad Request</li>
+                    <li>404: Not Found</li>
+                    <li>500: Internal Server Error</li>
                 </ul>
             </li>
-            <li><strong>What is the purpose of HTTP headers?</strong> They provide metadata about the request or response (e.g., content type, user-agent).</li>
-            <li><strong>How does chunked transfer encoding work?</strong> Data is sent in chunks for large responses, allowing the server to send it progressively.</li>
+            <li><strong>What is the purpose of HTTP headers?</strong> They provide metadata about the request or response (e.g., Content-Type, User-Agent, Content-Length).</li>
+            <li><strong>How does chunked transfer encoding work?</strong> Data is sent in chunks, allowing the server to start transmitting a response before knowing its total size.</li>
+            <li><strong>What is the difference between HTTP/1.0 and HTTP/1.1?</strong> HTTP/1.1 introduced persistent connections, chunked transfer encoding, and additional caching mechanisms.</li>
+            <li><strong>How do cookies and sessions work in HTTP?</strong> Cookies are key-value pairs stored on the client to maintain state across requests; sessions use cookies to track user interactions with the server.</li>
+        </ul>
+
+        <!-- Summary -->
+        <h3>Summary:</h3>
+        <p>
+            This section delves into the intricacies of the HTTP protocol, focusing on how clients and servers exchange information. You'll learn about various HTTP methods and their appropriate use cases, understand the significance of status codes, and explore the role of headers in conveying metadata. Additionally, you'll study data encoding methods like chunked transfer encoding and examine enhancements introduced in HTTP/1.1. Understanding these concepts is crucial for implementing a compliant and efficient web server.
+        </p>
+
+        <!-- Videos and Articles -->
+        <h3>Videos and Articles:</h3>
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=eesqK59rhGA" target="_blank">"The HTTP and the Web | HTTP Explained | Request-Response Cycle" by The TechCave</a></li>
+            <li><a href="https://dev.to/devlawrence/understanding-http-basics-for-beginners-3f28" target="_blank">"Understanding HTTP: Basics for Beginners" by DEV Community</a></li>
+            <li><a href="https://www.youtube.com/watch?v=ALq0xKp3P9E" target="_blank">"How HTTP Protocol Works?" by Animated Study</a></li>
+            <li><a href="https://davisgitonga.dev/blog/request-response-cycle" target="_blank">"How the Web Works, HTTP Request/Response Cycle" by Davis Gitonga</a></li>
+            <li><a href="https://www.youtube.com/watch?v=pHFWGN-upGM" target="_blank">"Parts of an HTTP Request" by Udacity</a></li>
         </ul>
     </div>
 
     <!-- Part 3 -->
     <div class="day">
         <h2>Part 3: Deep Dive into C++ and Networking Basics</h2>
-        <h3>Videos and Articles:</h3>
-        <ul>
-            <li><a href="https://www.youtube.com/watch?v=vLnPwxZdW4Y" target="_blank">"C++ Programming Tutorial" by freeCodeCamp.org</a></li>
-            <li><a href="https://www.geeksforgeeks.org/computer-network-tutorial/" target="_blank">"Computer Network Tutorial" by GeeksforGeeks</a></li>
-            <li><a href="https://learn.microsoft.com/en-us/training/modules/network-fundamentals/" target="_blank">"Fundamentals of Computer Networking" by Microsoft Learn</a></li>
-            <li><a href="https://www.geeksforgeeks.org/socket-programming-in-cc-handling-multiple-clients-on-server-without-multi-threading/" target="_blank">"Socket Programming in C++ by GeeksforGeeks"</a></li>
-            <li><a href="https://www.youtube.com/watch?v=2hNdkYInj4g" target="_blank">"Networking in C++ Part #1: MMO Client/Server, ASIO & Framework Basics by javidx9"</a></li>
-            <li><a href="https://beej.us/guide/bgnet/" target="_blank">"Beej’s Guide to Network Programming by Beej’s Guide"</a></li>
-        </ul>
         <h3>Learning Outcome:</h3>
-        <p>Gain a solid understanding of C++ programming, socket programming, and basic networking concepts.</p>
+        <p>Acquire a solid understanding of C++ programming, socket programming, and fundamental networking concepts necessary for building a web server.</p>
 
         <!-- Guided Questions -->
         <h3>Guided Questions:</h3>
         <ul>
             <li><strong>What is socket programming?</strong> It enables communication over a network between a client and server using sockets.</li>
-            <li><strong>How do you set up a TCP server in C++?</strong> Use socket(), bind(), listen(), accept(), send(), and recv() to handle connections.</li>
+            <li><strong>How do you set up a TCP server in C++?</strong> Use <code>socket()</code>, <code>bind()</code>, <code>listen()</code>, <code>accept()</code>, <code>send()</code>, and <code>recv()</code> to handle connections.</li>
             <li><strong>What is non-blocking I/O?</strong> It allows the server to handle multiple clients without waiting for I/O operations to complete.</li>
-            <li><strong>How does a server handle multiple connections?</strong> Using event loops (e.g., select(), poll()) or threads to manage clients concurrently.</li>
-            <li><strong>How do you handle errors in socket programming?</strong> Use error-checking functions and handle specific errors like timeouts (EAGAIN, ECONNRESET).</li>
+            <li><strong>How does a server handle multiple connections?</strong> Using event loops (e.g., <code>select()</code>, <code>poll()</code>) or multithreading to manage clients concurrently.</li>
+            <li><strong>How do you handle errors in socket programming?</strong> Use error-checking functions and handle specific errors like timeouts (<code>EAGAIN</code>, <code>ECONNRESET</code>).</li>
+            <li><strong>What are the differences between TCP and UDP?</strong> TCP is connection-oriented and reliable, while UDP is connectionless and faster but less reliable.</li>
+            <li><strong>How does the OSI model relate to networking?</strong> It provides a conceptual framework to understand how different networking protocols interact across layers.</li>
+            <li><strong>What are some best practices in C++ programming for network applications?</strong> Use RAII for resource management, handle exceptions carefully, and ensure thread safety.</li>
+        </ul>
+
+        <!-- Summary -->
+        <h3>Summary:</h3>
+        <p>
+            In this part, you'll dive deep into C++ programming and networking essentials. You'll learn how to create a TCP server using socket programming, manage multiple client connections, and implement non-blocking I/O operations. Understanding error handling in network communication is also crucial. Additionally, you'll revisit key C++ concepts and best practices to write efficient, robust, and maintainable code for your web server project.
+        </p>
+
+        <!-- Videos and Articles -->
+        <h3>Videos and Articles:</h3>
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=vLnPwxZdW4Y" target="_blank">"C++ Programming Tutorial" by freeCodeCamp.org</a></li>
+            <li><a href="https://www.geeksforgeeks.org/computer-network-tutorial/" target="_blank">"Computer Network Tutorial" by GeeksforGeeks</a></li>
+            <li><a href="https://learn.microsoft.com/en-us/training/modules/network-fundamentals/" target="_blank">"Fundamentals of Computer Networking" by Microsoft Learn</a></li>
+            <li><a href="https://beej.us/guide/bgnet/" target="_blank">"Beej’s Guide to Network Programming"</a></li>
+            <li><a href="https://www.youtube.com/watch?v=2hNdkYInj4g" target="_blank">"Networking in C++ Part #1: MMO Client/Server, ASIO & Framework Basics" by javidx9</a></li>
         </ul>
     </div>
 
     <!-- Part 4 -->
     <div class="day">
         <h2>Part 4: Review Configuration Files and Server Setup</h2>
-        <h3>Videos and Articles:</h3>
-        <ul>
-            <li><a href="https://www.youtube.com/watch?v=w6kA5b_VmHk" target="_blank">"Virtual Hosting and Apache Server Configuration Basics" by Server Academy</a></li>
-            <li><a href="https://www.nginx.com/resources/wiki/start/topics/examples/full/" target="_blank">"Complete Configuration Example for Nginx" by Nginx</a></li>
-            <li><a href="https://www.digitalocean.com/community/tutorial_series/linux-server-configuration" target="_blank">"Linux Server Configuration Basics" by DigitalOcean</a></li>
-            <li><a href="https://www.youtube.com/watch?v=to1GzKpAUkU" target="_blank">"Apache Web Server Setup and Configuration on Ubuntu" by TechWorld with Nana</a></li>
-        </ul>
         <h3>Learning Outcome:</h3>
-        <p>Understand how configuration files work in web servers (Nginx, Apache) and basic server setup steps.</p>
+        <p>Understand how to read and write configuration files for web servers, set up server blocks, virtual hosts, and manage server settings securely.</p>
 
         <!-- Guided Questions -->
         <h3>Guided Questions:</h3>
         <ul>
-            <li><strong>What is a configuration file?</strong> A file containing settings for software (like a web server).</li>
-            <li><strong>What are virtual hosts?</strong> They allow multiple domains to be hosted on the same server using different configurations.</li>
-            <li><strong>What’s the role of the configuration file in Nginx?</strong> It defines server behavior, locations, and how requests are processed.</li>
-            <li><strong>How do you troubleshoot configuration errors?</strong> Check logs, test config syntax (nginx -t, apache2ctl configtest), and isolate changes.</li>
-            <li><strong>What are common security practices for web server configurations?</strong> Restrict file permissions, use SSL, and configure proper user roles.</li>
+            <li><strong>What is the purpose of a configuration file?</strong> It specifies server settings, such as ports, root directories, and error pages.</li>
+            <li><strong>How do you define virtual hosts?</strong> By mapping domain names or IP addresses to specific server configurations.</li>
+            <li><strong>What are key configuration directives?</strong> Directives like <code>server_name</code>, <code>error_page</code>, and <code>root</code> control server behavior.</li>
+            <li><strong>How do you define routes in a configuration?</strong> By mapping URL paths to specific files or scripts on the server.</li>
+            <li><strong>How do you manage request limits and timeouts?</strong> Set configuration parameters for maximum request size and connection timeouts to protect the server.</li>
+            <li><strong>What is the importance of configuration file syntax and structure?</strong> Proper syntax ensures the server can parse and apply settings without errors.</li>
+            <li><strong>How can you validate and test configuration files?</strong> Use tools or built-in commands (e.g., <code>nginx -t</code>) to test configurations before applying them.</li>
+        </ul>
+
+        <!-- Summary -->
+        <h3>Summary:</h3>
+        <p>
+            This section focuses on the role of configuration files in web servers. You'll learn how to parse configuration files, define server blocks and virtual hosts, and specify crucial settings like error pages and root directories. Understanding how to manage request limits and timeouts through configurations is essential for server security and performance. Additionally, you'll explore best practices for writing, validating, and maintaining configuration files to ensure your server runs smoothly.
+        </p>
+
+        <!-- Videos and Articles -->
+        <h3>Videos and Articles:</h3>
+        <ul>
+            <li><a href="https://www.digitalocean.com/community/tutorials/understanding-the-nginx-configuration-file-structure-and-configuration-contexts" target="_blank">"NGINX Configuration Basics" by DigitalOcean</a></li>
+            <li><a href="https://www.linode.com/docs/guides/apache-configuration-basics/" target="_blank">"Apache Configuration Basics" by Linode</a></li>
+            <li><a href="https://www.youtube.com/watch?v=9t9Mp0BGnyI" target="_blank">"NGINX Tutorial for Beginners" by YouTube</a></li>
+            <li><a href="https://www.dnsstuff.com/apache-web-server-configuration" target="_blank">"Apache Web Server Configuration" by DNSstuff</a></li>
         </ul>
     </div>
 
     <!-- Part 5 -->
     <div class="day">
         <h2>Part 5: Exploring CGI and Dynamic Content</h2>
-        <h3>Videos and Articles:</h3>
-        <ul>
-            <li><a href="https://www.youtube.com/watch?v=UC8Gn_WJ5RM" target="_blank">"What is CGI? How CGI Works?" by Computer Science Hub</a></li>
-            <li><a href="https://www.youtube.com/watch?v=HbWMptXLbc4" target="_blank">"CGI Tutorial: How to Use CGI to Generate Dynamic Web Content" by HowToFAQ</a></li>
-            <li><a href="https://www.techtarget.com/searchnetworking/definition/Common-Gateway-Interface-CGI" target="_blank">"Common Gateway Interface (CGI)" by TechTarget</a></li>
-        </ul>
         <h3>Learning Outcome:</h3>
-        <p>Explore how CGI scripts work to generate dynamic web content.</p>
+        <p>Learn how CGI scripts work for dynamic content generation and how to integrate and handle them within a web server.</p>
 
         <!-- Guided Questions -->
         <h3>Guided Questions:</h3>
         <ul>
-            <li><strong>What is CGI?</strong> A standard that enables web servers to execute scripts and generate dynamic content.</li>
-            <li><strong>How does CGI interact with web servers?</strong> The server passes request data to the script and sends the output back as part of the response.</li>
-            <li><strong>What programming languages are commonly used for CGI?</strong> Perl, Python, and Bash are commonly used.</li>
-            <li><strong>What is the security concern with CGI?</strong> It can execute commands on the server, so improper input handling may lead to vulnerabilities.</li>
-            <li><strong>How does CGI compare to modern alternatives?</strong> CGI is slower and less scalable than technologies like FastCGI, mod_perl, or application frameworks.</li>
+            <li><strong>What is CGI?</strong> CGI (Common Gateway Interface) allows the server to run external programs to generate dynamic content.</li>
+            <li><strong>How does CGI handle input and output?</strong> CGI scripts receive request data via environment variables and standard input, and return content via standard output.</li>
+            <li><strong>How do you implement CGI in a server?</strong> Use <code>fork()</code> and <code>execve()</code> to run scripts like Python or PHP, passing necessary environment variables.</li>
+            <li><strong>What are security considerations for CGI?</strong> Prevent code injection by validating inputs and securely managing environment variables.</li>
+            <li><strong>How does CGI handle chunked transfer encoding?</strong> The server unchunks the request before sending it to the CGI script, and the CGI response is sent back chunked if necessary.</li>
+            <li><strong>What are the performance implications of using CGI?</strong> Each CGI request spawns a new process, which can be resource-intensive; alternatives like FastCGI can mitigate this.</li>
+            <li><strong>How do environment variables work in CGI?</strong> Environment variables pass request metadata (e.g., <code>REQUEST_METHOD</code>, <code>CONTENT_TYPE</code>) to the CGI script.</li>
+        </ul>
+
+        <!-- Summary -->
+        <h3>Summary:</h3>
+        <p>
+            In this part, you'll explore how to generate dynamic content using CGI scripts. You'll understand how the server interacts with external programs to process requests and produce responses. Key topics include managing input and output for CGI scripts, implementing them securely, and handling data encoding. Recognizing the security risks and performance considerations associated with CGI is crucial for building a robust web server.
+        </p>
+
+        <!-- Videos and Articles -->
+        <h3>Videos and Articles:</h3>
+        <ul>
+            <li><a href="https://www.geeksforgeeks.org/common-gateway-interface-cgi" target="_blank">"Common Gateway Interface (CGI)" by GeeksforGeeks</a></li>
+            <li><a href="https://www.tutorialspoint.com/python/python_cgi_programming.htm" target="_blank">"Python - CGI Programming" by TutorialsPoint</a></li>
+            <li><a href="https://www.youtube.com/watch?v=GVONOAEID5E" target="_blank">"Python CGI Programming Tutorial" by Edureka</a></li>
+            <li><a href="https://beej.us/guide/bgnet/html/multi/clientserver.html#cgistuff" target="_blank">"CGI Programming in C" by Beej's Guide</a></li>
         </ul>
     </div>
 
+    <!-- Part 6 -->
+    <div class="day">
+        <h2>Part 6: Advanced Concepts and Project-Specific Requirements</h2>
+        <h3>Learning Outcome:</h3>
+        <p>Master advanced web server features, focusing on concurrency, performance optimization, security, and additional functionalities relevant to the project.</p>
+
+        <!-- Guided Questions -->
+        <h3>Guided Questions:</h3>
+        <ul>
+            <li><strong>How do you handle file uploads and static content?</strong> Parse <code>multipart/form-data</code> for file uploads and serve static files from the server's filesystem.</li>
+            <li><strong>How do you manage concurrency and performance?</strong> Use non-blocking I/O and optimize event loops to handle many clients efficiently.</li>
+            <li><strong>How do you implement error handling and logging?</strong> Return proper status codes and log both successful requests and errors for debugging and monitoring.</li>
+            <li><strong>How do you ensure security (timeouts, limits, validation)?</strong> Implement input validation, set timeouts, and restrict request sizes to prevent attacks like DoS.</li>
+            <li><strong>What bonus features can enhance your server?</strong> Support cookies, session management, HTTPS, and multiple CGI handlers for advanced functionality.</li>
+            <li><strong>What is load balancing, and how can it be implemented?</strong> Distribute incoming requests across multiple servers to improve performance and reliability.</li>
+            <li><strong>How can you implement SSL/TLS in your server?</strong> Use libraries like OpenSSL to encrypt data transmitted between the client and server.</li>
+        </ul>
+
+        <!-- Summary -->
+        <h3>Summary:</h3>
+        <p>
+            This final part focuses on advanced topics and specific requirements for your web server project. You'll learn how to handle file uploads, serve static content efficiently, and manage multiple client connections simultaneously. Emphasis is placed on implementing robust error handling, logging mechanisms, and security measures to safeguard your server. Additionally, you'll explore optional features like session management and SSL/TLS encryption to enhance functionality and security.
+        </p>
+
+        <!-- Videos and Articles -->
+        <h3>Videos and Articles:</h3>
+        <ul>
+            <li><a href="https://www.nginx.com/blog/thread-pools-boost-performance-9x/" target="_blank">"Boosting NGINX Performance with Thread Pools" by NGINX</a></li>
+            <li><a href="https://www.geeksforgeeks.org/handling-file-uploads-using-multipart-form-data-in-http-request/" target="_blank">"Handling File Uploads in HTTP Requests" by GeeksforGeeks</a></li>
+            <li><a href="https://www.openssl.org/docs/" target="_blank">"OpenSSL Documentation" by OpenSSL Project</a></li>
+            <li><a href="https://www.youtube.com/watch?v=oBh3l03kV70" target="_blank">"Understanding Load Balancing" by TechQuickie</a></li>
+            <li><a href="https://www.cloudflare.com/learning/ssl/what-is-ssl/" target="_blank">"What is SSL/TLS?" by Cloudflare</a></li>
+        </ul>
+    </div>
 
     <!-- Tasks to Master -->
     <div class="tasks">
