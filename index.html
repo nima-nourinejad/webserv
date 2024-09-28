@@ -48,6 +48,16 @@
         </ul>
         <h3>Learning Outcome:</h3>
         <p>Understand the basics of web servers and the HTTP protocol.</p>
+
+        <!-- Guided Questions -->
+        <h3>Guided Questions:</h3>
+        <ul>
+            <li><strong>What is a web server?</strong> A web server stores and serves web pages to clients via HTTP.</li>
+            <li><strong>How does the web server communicate with a client?</strong> Via HTTP, it responds to browser requests with the requested content.</li>
+            <li><strong>What are the key components of HTTP?</strong> Request (method, URL, headers) and response (status code, headers, body).</li>
+            <li><strong>What is the difference between static and dynamic content?</strong> Static content is pre-built (HTML, CSS), while dynamic content is generated at request time (using CGI).</li>
+            <li><strong>How do common web servers (like Apache) work?</strong> They listen for client requests, process them, and respond using HTTP.</li>
+        </ul>
     </div>
 
     <!-- Part 2 -->
@@ -65,6 +75,28 @@
         </ul>
         <h3>Learning Outcome:</h3>
         <p>Grasp how requests and responses work in HTTP, including GET, POST, and DELETE methods.</p>
+
+        <!-- Guided Questions -->
+        <h3>Guided Questions:</h3>
+        <ul>
+            <li><strong>What is the HTTP request-response cycle?</strong> The client sends a request; the server processes it and sends a response.</li>
+            <li><strong>What are the HTTP methods, and when are they used?</strong> 
+                <ul>
+                    <li><strong>GET:</strong> Retrieve data.</li>
+                    <li><strong>POST:</strong> Submit data.</li>
+                    <li><strong>DELETE:</strong> Remove a resource.</li>
+                </ul>
+            </li>
+            <li><strong>What are HTTP status codes?</strong> Codes that indicate the result of the request:
+                <ul>
+                    <li>200: Success</li>
+                    <li>404: Not found</li>
+                    <li>500: Server error</li>
+                </ul>
+            </li>
+            <li><strong>What is the purpose of HTTP headers?</strong> They provide metadata about the request or response (e.g., content type, user-agent).</li>
+            <li><strong>How does chunked transfer encoding work?</strong> Data is sent in chunks for large responses, allowing the server to send it progressively.</li>
+        </ul>
     </div>
 
     <!-- Part 3 -->
@@ -81,6 +113,16 @@
         </ul>
         <h3>Learning Outcome:</h3>
         <p>Gain a solid understanding of C++ programming, socket programming, and basic networking concepts.</p>
+
+        <!-- Guided Questions -->
+        <h3>Guided Questions:</h3>
+        <ul>
+            <li><strong>What is socket programming?</strong> It enables communication over a network between a client and server using sockets.</li>
+            <li><strong>How do you set up a TCP server in C++?</strong> Use socket(), bind(), listen(), accept(), send(), and recv() to handle connections.</li>
+            <li><strong>What is non-blocking I/O?</strong> It allows the server to handle multiple clients without waiting for I/O operations to complete.</li>
+            <li><strong>How does a server handle multiple connections?</strong> Using event loops (e.g., select(), poll()) or threads to manage clients concurrently.</li>
+            <li><strong>How do you handle errors in socket programming?</strong> Use error-checking functions and handle specific errors like timeouts (EAGAIN, ECONNRESET).</li>
+        </ul>
     </div>
 
     <!-- Part 4 -->
@@ -88,18 +130,23 @@
         <h2>Part 4: Review Configuration Files and Server Setup</h2>
         <h3>Videos and Articles:</h3>
         <ul>
-            <li><a href="https://www.digitalocean.com/community/tutorials/understanding-the-nginx-configuration-file-structure-and-configuration-contexts" target="_blank">"NGINX Configuration Basics" by DigitalOcean</a></li>
-            <li><a href="https://www.linode.com/docs/guides/apache-configuration-basics/" target="_blank">"Apache Configuration Basics" by Linode</a></li>
-            <li><a href="https://www.youtube.com/watch?v=9t9Mp0BGnyI" target="_blank">"NGINX Tutorial for Beginners" by YouTube</a></li>
-            <li><a href="https://www.dnsstuff.com/apache-web-server-configuration" target="_blank">"Apache Web Server Configuration" by DNSstuff</a></li>
-            <li><a href="https://www.mssqltips.com/sqlservertip/2511/standardize-sql-server-installations-with-configuration-files/" target="_blank">"Standardize SQL Server Installations with Configuration Files" by MSSQLTips</a></li>
-            <li><a href="https://configu.com/blog/configuration-files-types-examples-and-5-critical-best-practices/" target="_blank">"Configuration Files: Types, Examples, and Best Practices" by Configu</a></li>
-            <li><a href="https://www.freecodecamp.org/news/linux-server-course-system-configuration-and-operation/" target="_blank">"How to Configure and Operate Linux Servers" by freeCodeCamp</a></li>
-            <li><a href="https://www.systemcenterdudes.com/complete-sccm-installation-guide-and-configuration/" target="_blank">"Complete SCCM Installation Guide and Configuration" by System Center Dudes</a></li>
-            <li><a href="https://learn.microsoft.com/en-us/mem/configmgr/core/servers/deploy/install/setup-reference" target="_blank">"Setup Reference - Configuration Manager" by Microsoft Learn</a></li>
+            <li><a href="https://www.youtube.com/watch?v=w6kA5b_VmHk" target="_blank">"Virtual Hosting and Apache Server Configuration Basics" by Server Academy</a></li>
+            <li><a href="https://www.nginx.com/resources/wiki/start/topics/examples/full/" target="_blank">"Complete Configuration Example for Nginx" by Nginx</a></li>
+            <li><a href="https://www.digitalocean.com/community/tutorial_series/linux-server-configuration" target="_blank">"Linux Server Configuration Basics" by DigitalOcean</a></li>
+            <li><a href="https://www.youtube.com/watch?v=to1GzKpAUkU" target="_blank">"Apache Web Server Setup and Configuration on Ubuntu" by TechWorld with Nana</a></li>
         </ul>
         <h3>Learning Outcome:</h3>
-        <p>Understand how to read and write configuration files for web servers, including setting up server blocks and virtual hosts.</p>
+        <p>Understand how configuration files work in web servers (Nginx, Apache) and basic server setup steps.</p>
+
+        <!-- Guided Questions -->
+        <h3>Guided Questions:</h3>
+        <ul>
+            <li><strong>What is a configuration file?</strong> A file containing settings for software (like a web server).</li>
+            <li><strong>What are virtual hosts?</strong> They allow multiple domains to be hosted on the same server using different configurations.</li>
+            <li><strong>What’s the role of the configuration file in Nginx?</strong> It defines server behavior, locations, and how requests are processed.</li>
+            <li><strong>How do you troubleshoot configuration errors?</strong> Check logs, test config syntax (nginx -t, apache2ctl configtest), and isolate changes.</li>
+            <li><strong>What are common security practices for web server configurations?</strong> Restrict file permissions, use SSL, and configure proper user roles.</li>
+        </ul>
     </div>
 
     <!-- Part 5 -->
@@ -107,17 +154,22 @@
         <h2>Part 5: Exploring CGI and Dynamic Content</h2>
         <h3>Videos and Articles:</h3>
         <ul>
-            <li><a href="https://www.geeksforgeeks.org/common-gateway-interface-cgi" target="_blank">"Common Gateway Interface (CGI)" by GeeksforGeeks</a></li>
-            <li><a href="https://www.geeksforgeeks.org/cgi-programming-python" target="_blank">"Introduction to CGI" by GeeksforGeeks</a></li>
-            <li><a href="https://www.tutorialspoint.com/python/python_cgi_programming.htm" target="_blank">"Python - CGI Programming" by TutorialsPoint</a></li>
-            <li><a href="https://www.youtube.com/watch?v=GVONOAEID5E" target="_blank">"Python CGI Programming Tutorial" by Edureka (YouTube)</a></li>
-            <li><a href="https://publib.boulder.ibm.com/httpserv/manual70/howto/cgi.html" target="_blank">"Dynamic Content with CGI" by IBM Developer</a></li>
-            <li><a href="https://www.ibm.com/docs/en/i/7.5?topic=functionality-cgi" target="_blank">"Apache Tutorial: Dynamic Content with CGI" by IBM Developer</a></li>
-            <li><a href="https://www.youtube.com/user/schafer5" target="_blank">"CGI Programming in Python" by Corey Schafer (YouTube)</a></li>
-            <li><a href="https://www.geeksforgeeks.org/cgi-programming-python" target="_blank">"CGI Programming in Python" by GeeksforGeeks</a></li>
+            <li><a href="https://www.youtube.com/watch?v=UC8Gn_WJ5RM" target="_blank">"What is CGI? How CGI Works?" by Computer Science Hub</a></li>
+            <li><a href="https://www.youtube.com/watch?v=HbWMptXLbc4" target="_blank">"CGI Tutorial: How to Use CGI to Generate Dynamic Web Content" by HowToFAQ</a></li>
+            <li><a href="https://www.techtarget.com/searchnetworking/definition/Common-Gateway-Interface-CGI" target="_blank">"Common Gateway Interface (CGI)" by TechTarget</a></li>
         </ul>
         <h3>Learning Outcome:</h3>
-        <p>Learn how CGI scripts work for dynamic content generation and how to handle them in a web server.</p>
+        <p>Explore how CGI scripts work to generate dynamic web content.</p>
+
+        <!-- Guided Questions -->
+        <h3>Guided Questions:</h3>
+        <ul>
+            <li><strong>What is CGI?</strong> A standard that enables web servers to execute scripts and generate dynamic content.</li>
+            <li><strong>How does CGI interact with web servers?</strong> The server passes request data to the script and sends the output back as part of the response.</li>
+            <li><strong>What programming languages are commonly used for CGI?</strong> Perl, Python, and Bash are commonly used.</li>
+            <li><strong>What is the security concern with CGI?</strong> It can execute commands on the server, so improper input handling may lead to vulnerabilities.</li>
+            <li><strong>How does CGI compare to modern alternatives?</strong> CGI is slower and less scalable than technologies like FastCGI, mod_perl, or application frameworks.</li>
+        </ul>
     </div>
 
 
